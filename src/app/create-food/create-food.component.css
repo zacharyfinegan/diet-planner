@@ -26,3 +26,7 @@ tr:nth-child(even) {
     display: flex;
     flex-direction: column;
 }
+
+#totals {
+    font-weight: bold;
+}

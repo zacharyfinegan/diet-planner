@@ -19,6 +19,7 @@
         </tbody>
     </table>
 
+    <button (click)="totalMacros()">Finish</button>
 
     <h3>Current food</h3>
     <table class="currentFoodTable">
@@ -32,6 +33,13 @@
                 <td>{{food[2]}}</td>
                 <td>{{food[3]}}</td>
                 <td>{{food[4]}}</td>
+            </tr>
+            <tr id="totals" *ngIf="currentFood.length> 0">
+                <td>Totals:</td>
+                <td>{{totalMacrosArray[0]}}</td>
+                <td>{{totalMacrosArray[1]}}</td>
+                <td>{{totalMacrosArray[2]}}</td>
+                <td>{{totalMacrosArray[3]}}</td>
             </tr>
         </tbody>
     </table>
