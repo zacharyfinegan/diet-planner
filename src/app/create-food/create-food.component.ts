@@ -45,16 +45,15 @@ export class CreateFoodComponent implements OnInit {
             totalCarbs += value[3];
             totalProtein += value[4];
         });
-
-        console.log(totalCalories, totalFat, totalCarbs, totalProtein)
-        // this.totalMacrosArray.push(totalCalories,totalFat,totalCarbs,totalProtein);
         this.totalMacrosArray[0] = totalCalories;
         this.totalMacrosArray[1] = totalFat;
         this.totalMacrosArray[2] = totalCarbs;
         this.totalMacrosArray[3] = totalProtein;
 
-        console.log(this.totalMacrosArray)
         return this.totalMacrosArray;
+    }
 
+    reset() {
+        this.currentFood.length = 0;
     }
 }
