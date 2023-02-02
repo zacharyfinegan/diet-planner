@@ -1,0 +1,38 @@
+<div id="box">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th *ngFor="let header of headers">{{header}}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let food of macro">
+                <button (click)="addToCurrentFood(food)" >Add</button>
+                <td class="food-name">{{food.Name}}</td>
+                <td>{{food.Calories}}</td>
+                <td>{{food.Fat}}</td>
+                <td>{{food.Carbs}}</td>
+                <td>{{food.Protein}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h3>Current food</h3>
+    <table class="currentFoodTable">
+        <thead>
+            <th *ngFor="let header of headers">{{header}}</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let food of currentFood">
+                <td class="food-name">{{food[0]}}</td>
+                <td>{{food[1]}}</td>
+                <td>{{food[2]}}</td>
+                <td>{{food[3]}}</td>
+                <td>{{food[4]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

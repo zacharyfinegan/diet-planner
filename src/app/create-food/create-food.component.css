@@ -1,0 +1,28 @@
+table {
+    margin-top: px;
+    width: 80%;
+    text-align: left;
+}
+
+th {
+    padding: 8px;
+}
+td {
+    padding: 8px;
+    font-size: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #c6ecc6
+    ;
+    ;
+}
+
+.food-name {
+    width: 630px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+}
