@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateFoodComponent } from './create-food/create-food.component';
 import { MacrosComponent } from './macros/macros.component';
 import { NavigationComponent } from './navigation/navigation.component';
+
 
 @NgModule({
   declarations: [		
@@ -19,7 +21,8 @@ import { NavigationComponent } from './navigation/navigation.component';
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

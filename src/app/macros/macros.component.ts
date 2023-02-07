@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/macros.json';
 
 interface Macros {
-    Name: String;
+    id: String;
     Calories: Number;
     Fat: Number;
     Carbs: Number;
@@ -16,7 +16,7 @@ interface Macros {
 })
 export class MacrosComponent implements OnInit {
 
-    macros: Macros[] = macroData;
+    macros: Macros[] = macroData.foods;
 
     // parseIt() {
     //     macroData.forEach(element => {

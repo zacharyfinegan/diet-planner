@@ -1,47 +1,88 @@
-<div id="box">
-    <table>
+<h2>Default Foods</h2>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Carbs</th>
+            <th>Protein</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let food of macro.foods">
+            <button (click)="addToNewFood(food)">Add</button>
+            <td>{{food.id}}</td>
+            <td>{{food.Calories}}</td>
+            <td>{{food.Fat}}</td>
+            <td>{{food.Carbs}}</td>
+            <td>{{food.Protein}}</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="reset()">Reset</button> 
+
+
+
+<h2>Combine Foods</h2>
+<table class="createFoodTable">
+    <thead>
+        <td></td>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Carbs</th>
+            <th>Protein</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let food of createFoodArray">            
+            <button (click)="remove(food)" id="food-to-remove">Remove</button>
+            <td class="food-name">{{food[0]}}</td>
+            <td>{{food[1]}}</td>
+            <td>{{food[2]}}</td>
+            <td>{{food[3]}}</td>
+            <td>{{food[4]}}</td>
+            <td [innerHTML]="qtyHTML"></td>
+        </tr>
+        <tr id="totals" *ngIf="createFoodArray.length> 0">
+            <td>Totals:</td>
+            <input type="text" placeholder="Input new food name" #newFoodName (keyup.enter)="true">
+            <button (click)="createNewFood(newFoodName.value)">Create Food</button>
+            {{newFoodName.value}}
+            <td>{{newFoodMacrosArray[0]}}</td>
+            <td>{{newFoodMacrosArray[1]}}</td>
+            <td>{{newFoodMacrosArray[2]}}</td>
+            <td>{{newFoodMacrosArray[3]}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<form #form="ngForm" (ngSubmit)="createEntirelyNewFood(form)">
+    <h2>Create a New Food</h2>
+    <table class="createFoodTable">
         <thead>
+                <th>Name</th>
+                <th>Calories</th>
+                <th>Fat</th>
+                <th>Carbs</th>
+                <th>Protein</th>
+        </thead>
+        <tbody>
             <tr>
-                <th></th>
-                <th *ngFor="let header of headers">{{header}}</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let food of macro">
-                <button (click)="addToCurrentFood(food)" >Add</button>
-                <td class="food-name">{{food.Name}}</td>
-                <td>{{food.Calories}}</td>
-                <td>{{food.Fat}}</td>
-                <td>{{food.Carbs}}</td>
-                <td>{{food.Protein}}</td>
+                <ng-container *ngIf="form.valid">
+                    <button type="submit">Save New Food</button>
+                </ng-container>
+                <!-- <td><button (click)="createEntirelyNewFood(
+                    N.value, Cal.value, F.value, Car.value, P.value)">
+                    Save New Food</button></td> -->
+                <td><input required type="text" placeholder="Enter Food Name + Serving Size" size="30" name="Name" ngModel></td>
+                <td><input required type="text" placeholder="Enter Calories" name="Calories" ngModel></td>
+                <td><input required type="text" placeholder="Fat Grams" name="Fat" ngModel></td>
+                <td><input required type="text" placeholder="Enter Carbs" name="Carbs" ngModel></td>
+                <td><input required type="text" placeholder="Enter Protein" name="Protein" ngModel></td>
             </tr>
         </tbody>
     </table>
-
-    <button (click)="totalMacros()">Finish</button>
-    <button style="margin-left: 10px" (click)="reset()">Reset</button> 
-
-    <h3>Current food</h3>
-    <table class="currentFoodTable">
-        <thead>
-            <th *ngFor="let header of headers">{{header}}</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let food of currentFood">
-                <td class="food-name">{{food[0]}}</td>
-                <td>{{food[1]}}</td>
-                <td>{{food[2]}}</td>
-                <td>{{food[3]}}</td>
-                <td>{{food[4]}}</td>
-            </tr>
-            <tr id="totals" *ngIf="currentFood.length> 0">
-                <td>Totals:</td>
-                <td>{{totalMacrosArray[0]}}</td>
-                <td>{{totalMacrosArray[1]}}</td>
-                <td>{{totalMacrosArray[2]}}</td>
-                <td>{{totalMacrosArray[3]}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+</form>
