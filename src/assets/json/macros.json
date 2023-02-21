@@ -216,6 +216,125 @@
       "Fat": 3,
       "Carbs": 6,
       "Protein": 4
+    },
+    {
+      "id": "McDonalds Quarter Pounder",
+      "Calories": 417,
+      "Fat": 20,
+      "Carbs": 38,
+      "Protein": 24
+    },
+    {
+      "id": "McDonalds Medium Fry",
+      "Calories": 320,
+      "Fat": 15,
+      "Carbs": 43,
+      "Protein": 5
+    },
+    {
+      "id": "McDonalds Medium Coke",
+      "Calories": 190,
+      "Fat": 0,
+      "Carbs": 52,
+      "Protein": 0
+    },
+    {
+      "id": "McDonalds 10 Piece Nugget",
+      "Calories": 410,
+      "Fat": 23,
+      "Carbs": 26,
+      "Protein": 26
+    },
+    {
+      "id": "Dark Chocolate, 90% Cocoa, Lindt Excellence, 3 Pieces",
+      "Calories": 200,
+      "Fat": 16,
+      "Carbs": 9,
+      "Protein": 4
+    },
+    {
+      "id": "Peanuts, Dry Roasted, Sea Salt, Good & Gather, 1oz (40 Pieces)",
+      "Calories": 180,
+      "Fat": 15,
+      "Carbs": 4,
+      "Protein": 8
+    },
+    {
+      "id": "Honey, 100% Pure Raw & Unfiltered, Nature Nate's, 1 Tbsp",
+      "Calories": 70,
+      "Fat": 0,
+      "Carbs": 18,
+      "Protein": 0
+    },
+    {
+      "id": "Apple, Fuji, Medium, Food Lion",
+      "Calories": 90,
+      "Fat": 0,
+      "Carbs": 25,
+      "Protein": 0
+    },
+    {
+      "id": "Baby Carrots, 3oz (85g)",
+      "Calories": 35,
+      "Fat": 0,
+      "Carbs": 8,
+      "Protein": 1
+    },
+    {
+      "id": "Caramel Dip, Marzetti, 2 Tbsp",
+      "Calories": 140,
+      "Fat": 4,
+      "Carbs": 24,
+      "Protein": 0
+    },
+    {
+      "id": "Coconut Water, Original, Vita Coco, 16 Fl Oz Bottle",
+      "Calories": 90,
+      "Fat": 0,
+      "Carbs": 23,
+      "Protein": 0
+    },
+    {
+      "id": "Oat Milk, Less Sweet, Good & Gather, 1 cup",
+      "Calories": 90,
+      "Fat": 5,
+      "Carbs": 9,
+      "Protein": 2
+    },
+    {
+      "id": "Almond Cashew Protein Milk, Original, Silk, 1 cup'",
+      "Calories": 130,
+      "Fat": 8,
+      "Carbs": 3,
+      "Protein": 10
+    },
+    {
+      "id": "Smart Balance, Original, 1 tbsp",
+      "Calories": 80,
+      "Fat": 9,
+      "Carbs": 0,
+      "Protein": 0
+    },
+    {
+      "id": "Shrimp, Medium, Fully Cooked, Food Lion, 10 shrimp",
+      "Calories": 70,
+      "Fat": 0,
+      "Carbs": 0,
+      "Protein": 14
+    },
+    {
+      "id": "Peanut Butter, Skippy (Creamy / Chunky), 2 tbsp",
+      "Calories": 190,
+      "Fat": 16,
+      "Carbs": 6,
+      "Protein": 7
+    },
+    {
+      "id": "Garbanzo Beans",
+      "Calories": 120,
+      "Fat": 2,
+      "Carbs": 20,
+      "Protein": 7
     }
   ]
 }
