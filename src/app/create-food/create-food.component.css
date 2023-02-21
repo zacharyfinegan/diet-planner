@@ -1,3 +1,7 @@
+button {
+    height: fit-content;
+}
+
 table {
     margin-top: px;
     width: 80%;

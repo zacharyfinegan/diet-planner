@@ -71,17 +71,15 @@
         </thead>
         <tbody>
             <tr>
-                <ng-container *ngIf="form.valid">
-                    <button type="submit">Save New Food</button>
-                </ng-container>
+                <button [disabled]="!form.valid"type="submit">Save New Food</button>
                 <!-- <td><button (click)="createEntirelyNewFood(
                     N.value, Cal.value, F.value, Car.value, P.value)">
                     Save New Food</button></td> -->
                 <td><input required type="text" placeholder="Enter food name + serving size" size="30" name="Name" ngModel></td>
-                <td><input required type="text" placeholder="Enter calories" name="Calories" ngModel></td>
-                <td><input required type="text" placeholder="Enter grams fat" name="Fat" ngModel></td>
-                <td><input required type="text" placeholder="Enter grams carbs" name="Carbs" ngModel></td>
-                <td><input required type="text" placeholder="Enter grams protein" name="Protein" ngModel></td>
+                <td><input required type="number" min="0" placeholder="Enter calories" name="Calories" ngModel></td>
+                <td><input required type="number" min="0" placeholder="Enter grams fat" name="Fat" ngModel></td>
+                <td><input required type="number" min="0" placeholder="Enter grams carbs" name="Carbs" ngModel></td>
+                <td><input required type="number" min="0" placeholder="Enter grams protein" name="Protein" ngModel></td>
             </tr>
         </tbody>
     </table>
