@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateFoodComponent } from './create-food/create-food.component';
 import { MacrosComponent } from './macros/macros.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { DayTrackerComponent } from './day-tracker/day-tracker.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     CreateFoodComponent,
     MacrosComponent,
       NavigationComponent,
-      NavigationComponent
+      NavigationComponent,
+      DayTrackerComponent
    ],
   imports: [
     BrowserModule,
