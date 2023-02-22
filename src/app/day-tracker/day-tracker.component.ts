@@ -12,4 +12,20 @@ export class DayTrackerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  keyword = "name";
+  public countries = [
+    {
+      id: 1,
+      name: 'Albania',
+    },
+    {
+      id: 2,
+      name: 'Belgium',
+    },
+    {
+      id: 3,
+      name: 'Denmark',
+    }
+  ];
+
 }

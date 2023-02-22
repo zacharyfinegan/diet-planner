@@ -98,7 +98,7 @@ export class CreateFoodComponent implements OnInit {
            
         /* let bodyContent = JSON.stringify({"id": newFoodName, "Calories": this.newFoodMacrosArray[0], "Fat": this.newFoodMacrosArray[1], "Carbs": this.newFoodMacrosArray[2], "Protein": this.newFoodMacrosArray[3]}); */
         let bodyContent = JSON.stringify(newFood);
-           
+           console.log(bodyContent)
         let response = await fetch("http://localhost:3000/foods", { 
             method: "POST",
             body: bodyContent,
@@ -106,8 +106,6 @@ export class CreateFoodComponent implements OnInit {
         });
            
         let data = await response.text();
-        console.log(data);
-        console.log('HEEEEEERE')
         return;
     }
 
