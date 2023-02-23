@@ -1,2 +1,33 @@
-<p>daily-plan works!</p>
-<button (click)="createDailyPlan()"></button>
+<button 
+    (click)="createDailyPlan()"
+    (click)="reveal()">
+    Click for meal plan</button>
+
+<table id="hiddenUntilClick">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Carbs</th>
+            <th>Protein</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let food of dailyPlanArray">
+            <td>{{food.id}}</td>
+            <td>{{food.Calories}}</td>
+            <td>{{food.Fat}}</td>
+            <td>{{food.Carbs}}</td>
+            <td>{{food.Protein}}</td>
+        </tr>
+        <hr>
+        <tr id="totals">
+            <td>Totals:</td>
+            <td>{{dailyPlanTotalMacros[0]}}</td>
+            <td>{{dailyPlanTotalMacros[1]}}</td>
+            <td>{{dailyPlanTotalMacros[2]}}</td>
+            <td>{{dailyPlanTotalMacros[3]}}</td>
+        </tr>
+    </tbody>
+</table>

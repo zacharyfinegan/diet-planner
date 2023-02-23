@@ -11,6 +11,7 @@ export class DailyPlanComponent implements OnInit {
     macro = macroData;
     dailyPlanArray = new Array;
     maxIndex: number = this.macro.foods.length - 1;
+    dailyPlanTotalMacros = [0,0,0,0];
 
     constructor() { }
     ngOnInit(): void {
@@ -21,33 +22,47 @@ export class DailyPlanComponent implements OnInit {
     }
 
     createDailyPlan() {
-        let calories = 0;
-        let fat = 0;
-        let carbs = 0;
-        let protein = 0;
+        let sumCalories = 0;
+        let sumFat = 0;
+        let sumCarbs = 0;
+        let sumProtein = 0;
         let maxCalories = 2848;
+        let maxCalories95 = maxCalories * .95;
         let maxFat = 81;
         let maxCarbs = 380;
         let maxProtein = 175;
 
-        while (calories < maxCalories) {
+        while (sumCalories < maxCalories) {
             let index = this.getRandInt(this.maxIndex)
             let food = this.macro.foods[index]
 
-            calories += food.Calories;
-            fat += food.Fat;
-            carbs += food.Carbs;
-            protein += food.Protein;
+            if (sumCalories + food.Calories <= maxCalories) {
+                if (sumFat + food.Fat <= maxFat) {
+                    if (sumCarbs + food.Carbs <= maxCarbs) {
+                        if (sumProtein + food.Protein <= maxProtein) {
+                            sumCalories += food.Calories;
+                            sumFat += food.Fat;
+                            sumCarbs += food.Carbs;
+                            sumProtein += food.Protein;
 
-            this.dailyPlanArray.push(this.macro.foods[index])
-            console.log(this.dailyPlanArray)
+                            this.dailyPlanArray.push(food)
+                        }
+                    }
+                }
+            }
+            else break;
         } 
-        console.log(
-            "calories: " + calories + "\n" +
-            "fat: " + fat + "\n" +
-            "carbs: " + carbs +  "\n" +
-            "protein: " + protein
-        );
+        this.dailyPlanTotalMacros[0] = sumCalories;
+        this.dailyPlanTotalMacros[1] = sumFat;
+        this.dailyPlanTotalMacros[2] = sumCarbs;
+        this.dailyPlanTotalMacros[3] = sumProtein;
+    }
+
+    reveal() {
+        let table = document.getElementById("hiddenUntilClick")!;
+        if (table.style.display = "none") {
+            table.style.display = "block";
+        }
     }
 }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import macroData from '../../assets/json/macros.json'
 
 @Component({
   selector: 'app-day-tracker',
@@ -7,25 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DayTrackerComponent implements OnInit {
 
-  constructor() { }
+    macro = macroData;
 
-  ngOnInit(): void {
-  }
-
-  keyword = "name";
-  public countries = [
-    {
-      id: 1,
-      name: 'Albania',
-    },
-    {
-      id: 2,
-      name: 'Belgium',
-    },
-    {
-      id: 3,
-      name: 'Denmark',
+    constructor() { }
+    ngOnInit(): void {
     }
-  ];
+
+    keyword = "name";
+    public countries = [
+        {
+        id: 1,
+        name: 'These are',
+        },
+        {
+        id: 2,
+        name: 'test',
+        },
+        {
+        id: 3,
+        name: 'data.',
+        }
+    ];
 
 }
