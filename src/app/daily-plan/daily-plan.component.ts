@@ -9,9 +9,15 @@ import macroData from '../../assets/json/macros.json'
 export class DailyPlanComponent implements OnInit {
 
     macro = macroData;
+    dailyPlanArray = new Array;
+    maxIndex: number = this.macro.foods.length - 1;
 
     constructor() { }
     ngOnInit(): void {
+    }
+
+    getRandInt(maxIndex:number) {
+        return Math.floor(Math.random() * (this.maxIndex + 1)) 
     }
 
     createDailyPlan() {
@@ -19,7 +25,29 @@ export class DailyPlanComponent implements OnInit {
         let fat = 0;
         let carbs = 0;
         let protein = 0;
-        
+        let maxCalories = 2848;
+        let maxFat = 81;
+        let maxCarbs = 380;
+        let maxProtein = 175;
+
+        while (calories < maxCalories) {
+            let index = this.getRandInt(this.maxIndex)
+            let food = this.macro.foods[index]
+
+            calories += food.Calories;
+            fat += food.Fat;
+            carbs += food.Carbs;
+            protein += food.Protein;
+
+            this.dailyPlanArray.push(this.macro.foods[index])
+            console.log(this.dailyPlanArray)
+        } 
+        console.log(
+            "calories: " + calories + "\n" +
+            "fat: " + fat + "\n" +
+            "carbs: " + carbs +  "\n" +
+            "protein: " + protein
+        );
     }
 }
 
