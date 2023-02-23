@@ -15,6 +15,7 @@ export class DailyPlanComponent implements OnInit {
 
     constructor() { }
     ngOnInit(): void {
+        this.dailyPlanArray = new Array;
     }
 
     getRandInt(maxIndex:number) {
@@ -22,6 +23,7 @@ export class DailyPlanComponent implements OnInit {
     }
 
     createDailyPlan() {
+        this.dailyPlanArray = new Array;
         let sumCalories = 0;
         let sumFat = 0;
         let sumCarbs = 0;

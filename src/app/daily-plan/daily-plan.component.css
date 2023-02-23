@@ -5,3 +5,11 @@
 #totals {
     font-weight: bold;
 }
+
+button {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4px;
+}
