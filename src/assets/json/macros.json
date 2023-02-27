@@ -211,13 +211,6 @@
       "Protein": 20
     },
     {
-      "id": "sum yummy",
-      "Calories": 225,
-      "Fat": 3,
-      "Carbs": 6,
-      "Protein": 4
-    },
-    {
       "id": "McDonalds Quarter Pounder",
       "Calories": 417,
       "Fat": 20,
@@ -335,6 +328,13 @@
       "Fat": 2,
       "Carbs": 20,
       "Protein": 7
+    },
+    {
+      "id": "Caramel Apple, Fuji",
+      "Calories": 230,
+      "Fat": 4,
+      "Carbs": 49,
+      "Protein": 0
     }
   ]
 }

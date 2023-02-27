@@ -1,9 +1,15 @@
 <button 
     (click)="createDailyPlan()"
     (click)="reveal()">
-    Click for meal plan</button>
+    Click to make a randomized daily meal plan</button>
 
 <table id="hiddenUntilClick">
+    This work-in-progress prototype outputs a plan that adds individual foods until one of the following limits are met (or will be surpassed with further additions) for the day:<br>
+    Calories: 2,848<br>
+    Protein: 175g<br>
+    Carbs: 380g<br>
+    Fat: 81g<br>
+    Future iterations will allow adjustment of macro limits and more curated meal creation
     <thead>
         <tr>
             <th>Name</th>
@@ -30,4 +36,5 @@
             <td>{{dailyPlanTotalMacros[3]}}</td>
         </tr>
     </tbody>
+    <button click="addToWeekly">Add this daily meal plan to weekly meal plan</button>
 </table>

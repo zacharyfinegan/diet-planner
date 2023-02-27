@@ -61,10 +61,14 @@ export class DailyPlanComponent implements OnInit {
     }
 
     reveal() {
-        let table = document.getElementById("hiddenUntilClick")!;
-        if (table.style.display = "none") {
-            table.style.display = "block";
+        let hidden = document.getElementById("hiddenUntilClick")!;
+        if (hidden.style.display = "none") {
+            hidden.style.display = "block";
         }
+    }
+
+    addToWeekly() {
+        
     }
 }
 

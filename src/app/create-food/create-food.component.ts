@@ -85,6 +85,7 @@ export class CreateFoodComponent implements OnInit {
             Carbs: this.newFoodMacrosArray[2],
             Protein: this.newFoodMacrosArray[3]
         }
+        console.log(this.newFood)
         this.userMadeFoodsArray.push(this.newFood);
         this.saveNewFood(this.newFood);
     }

@@ -1,5 +1,6 @@
 body {
     background-color: #b3e6b3;
+    font-family: monospace;
 }
 
 button {
@@ -13,7 +14,7 @@ button:hover {
     background-color: #99e6ff;
 }
 
-p, h1, h2, h3, table, button {
+p, h1, h2, h3, h4, table, button {
     font-family:monospace;
 }
 input {
