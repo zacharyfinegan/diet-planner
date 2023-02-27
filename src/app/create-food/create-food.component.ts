@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import macroData from '../../assets/json/macros.json';
+import macroData from '../../assets/json/db.json';
 import { SelectorContext } from '@angular/compiler';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms'

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import macroData from '../../assets/json/macros.json'
+import macroData from '../../assets/json/db.json'
 
 @Component({
   selector: 'app-daily-plan',
