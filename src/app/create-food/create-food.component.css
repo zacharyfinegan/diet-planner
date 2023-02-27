@@ -34,3 +34,11 @@ tr:nth-child(even) {
 #totals {
     font-weight: bold;
 }
+
+#hiddenTitle {
+    display:none;
+}
+
+#hiddenTable {
+    display:none;
+}

@@ -74,6 +74,17 @@ export class CreateFoodComponent implements OnInit {
         this.newFoodMacrosArray[1] = this.newFoodMacrosArray[1] - food[2]
         this.newFoodMacrosArray[2] = this.newFoodMacrosArray[2] - food[3]
         this.newFoodMacrosArray[3] = this.newFoodMacrosArray[3] - food[4]
+        console.log(this.newFoodMacrosArray)
+        if ((this.newFoodMacrosArray[0] == 0) && (this.newFoodMacrosArray[1] == 0) && (this.newFoodMacrosArray[2] == 0) && (this.newFoodMacrosArray[3] == 0)) {
+            let hiddenTitle = document.getElementById("hiddenTitle")!;
+            if (hiddenTitle.style.display = "block") {
+                hiddenTitle.style.display = "none";
+            }
+            let hiddenTable = document.getElementById("hiddenTable")
+            if (hiddenTable!.style.display = "block") {
+                hiddenTable!.style.display = "none";
+            }
+        }
     }
 
     createNewFood(newFoodName: string) {
@@ -136,5 +147,16 @@ export class CreateFoodComponent implements OnInit {
         this.newFoodMacrosArray[2] = parseInt(car);
         this.newFoodMacrosArray[3] = parseInt(pro);
         this.createNewFood(id);
+    }
+
+    reveal() {
+        let hiddenTitle = document.getElementById("hiddenTitle")!;
+        if (hiddenTitle.style.display = "none") {
+            hiddenTitle.style.display = "block";
+        }
+        let hiddenTable = document.getElementById("hiddenTable")
+        if (hiddenTable!.style.display = "none") {
+            hiddenTable!.style.display = "block";
+        }
     }
 }
