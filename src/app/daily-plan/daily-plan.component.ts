@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/db.json'
+import { CalculatorService } from '../calculator.service';
 
 @Component({
   selector: 'app-daily-plan',
@@ -13,7 +14,7 @@ export class DailyPlanComponent implements OnInit {
     maxIndex: number = this.macro.foods.length - 1;
     dailyPlanTotalMacros = [0,0,0,0];
 
-    constructor() { }
+    constructor(private calculator: CalculatorService) { }
     ngOnInit(): void {
         this.dailyPlanArray = new Array;
     }
@@ -68,7 +69,7 @@ export class DailyPlanComponent implements OnInit {
     }
 
     addToWeekly() {
-        
+
     }
 }
 

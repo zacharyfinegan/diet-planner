@@ -12,7 +12,7 @@ import { MacrosComponent } from './macros/macros.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DayTrackerComponent } from './day-tracker/day-tracker.component';
 import { DailyPlanComponent } from './daily-plan/daily-plan.component';
-
+import { CalculatorService } from './calculator.service';
 
 @NgModule({
   declarations: [		
@@ -30,7 +30,7 @@ import { DailyPlanComponent } from './daily-plan/daily-plan.component';
     FormsModule,
     AutocompleteLibModule
   ],
-  providers: [],
+  providers: [CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
