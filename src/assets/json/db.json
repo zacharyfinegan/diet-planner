@@ -335,14 +335,16 @@
       "Fat": 4,
       "Carbs": 49,
       "Protein": 0
+    },
+    {
+      "id": "Sad Burrito",
+      "Calories": 140,
+      "Fat": 8,
+      "Carbs": 16,
+      "Protein": 13
     }
   ],
-
-
-
   "weeklyPlan": [
-    {
-        
-    }
+    {}
   ]
 }
