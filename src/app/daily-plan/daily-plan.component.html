@@ -1,7 +1,16 @@
-<button 
-    (click)="createDailyPlan()"
-    (click)="reveal()">
-    Click to make a randomized daily meal plan</button>
+<form #form="ngForm" (ngSubmit)="calculateMacros(form)">
+    <input type="number" name="age" placeholder="Enter your age" required ngModel min="18" max="80">
+    <input type="text" name="sex" placeholder="Enter your sex" required ngModel >
+    <input type="number" name="height" placeholder="Enter your height" required ngModel min="25" max="240">
+    <input type="number" name="weight" placeholder="Enter your weight" required ngModel min="39" max="420">
+
+    <!--Your macro needs: -->
+
+    <button 
+        [disabled]="!form.valid" type="submit" (click)="createDailyPlan()" (click)="reveal()">
+        Click to make a randomized daily meal plan
+    </button>
+</form>
 
 <table id="hiddenUntilClick">
     This work-in-progress prototype outputs a plan that adds individual foods until one of the following limits are met (or will be surpassed with further additions) for the day:<br>
@@ -38,10 +47,3 @@
     </tbody>
     <button click="addToWeekly">Add this daily meal plan to weekly meal plan</button>
 </table>
-
-<form #ngForm="ngForm">
-    <input type="number" placeholder="Enter your age">
-    <input type="text" placeholder="Enter your sex">
-    <input type="text" placeholder="Enter your height">
-    <input type="text" placeholder="Enter your weight">
-</form>

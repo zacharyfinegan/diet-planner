@@ -70,10 +70,7 @@
         </thead>
         <tbody>
             <tr>
-                <button [disabled]="!form.valid"type="submit">Save New Food</button>
-                <!-- <td><button (click)="createEntirelyNewFood(
-                    N.value, Cal.value, F.value, Car.value, P.value)">
-                    Save New Food</button></td> -->
+                <button [disabled]="!form.valid" type="submit">Save New Food</button>
                 <td><input required type="text" placeholder="Enter food name + serving size" size="30" name="Name" ngModel></td>
                 <td><input required type="number" min="0" placeholder="Enter calories" name="Calories" ngModel></td>
                 <td><input required type="number" min="0" placeholder="Enter grams fat" name="Fat" ngModel></td>

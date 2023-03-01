@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/db.json'
 import { CalculatorService } from '../calculator.service';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-daily-plan',
@@ -69,6 +70,10 @@ export class DailyPlanComponent implements OnInit {
     }
 
     addToWeekly() {
+
+    }
+
+    calculateMacros(form: NgForm) {
 
     }
 }
