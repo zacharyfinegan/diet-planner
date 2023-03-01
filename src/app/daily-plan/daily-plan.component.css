@@ -13,3 +13,20 @@ button {
     margin-right: auto;
     margin-top: 4px;
 }
+
+input, select {
+    border-radius: 10px;
+    padding: px;
+    border-width: 2px;
+    margin-right: 1px;
+    width: 200px;
+    height: 35px;
+    box-sizing: border-box;
+    border-color: black;
+    
+}
+
+
+/* select {
+    height: 33px;
+} */

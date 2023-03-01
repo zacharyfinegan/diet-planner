@@ -1,8 +1,16 @@
+<h3>Enter the following information so your curated meal plan can be created.</h3>
 <form #form="ngForm" (ngSubmit)="calculateMacros(form)">
-    <input type="number" name="age" placeholder="Enter your age" required ngModel min="18" max="80">
-    <input type="text" name="sex" placeholder="Enter your sex" required ngModel >
-    <input type="number" name="height" placeholder="Enter your height" required ngModel min="25" max="240">
-    <input type="number" name="weight" placeholder="Enter your weight" required ngModel min="39" max="420">
+    <input type="number" name="age" placeholder="Age" required ngModel min="18" max="80">
+    <select>
+        <option  disabled selected>Gender</option>
+        <option name="gender" *ngFor="let gender of genders" required ngModel>{{gender}}</option>
+    </select>
+    <input type="number" name="height" placeholder="Height (inches)" ng-init="72" required ngModel min="25" max="240">
+    <input type="number" name="weight" placeholder="Weight (pounds)" required ngModel min="39" max="420">
+    <select>
+        <option disabled selected>Activity Level</option>
+        <option name="activityLevel" *ngFor="let activityLevel of activityLevels" [value]="activityLevel" required ngModel>{{activityLevel}}</option>
+    </select>
 
     <!--Your macro needs: -->
 

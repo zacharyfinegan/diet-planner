@@ -17,6 +17,7 @@ button:hover {
 p, h1, h2, h3, h4, table, button {
     font-family:monospace;
 }
+
 input {
     border-radius: 10px;
     height: 17px;

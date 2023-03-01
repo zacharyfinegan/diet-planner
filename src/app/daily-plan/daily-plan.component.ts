@@ -14,6 +14,8 @@ export class DailyPlanComponent implements OnInit {
     dailyPlanArray = new Array;
     maxIndex: number = this.macro.foods.length - 1;
     dailyPlanTotalMacros = [0,0,0,0];
+    genders = ["Male", "Female"];
+    activityLevels = ["BMR", "Sedentary", "Light", "Moderate", "Active", "Very Active", "Extra Active"];
 
     constructor(private calculator: CalculatorService) { }
     ngOnInit(): void {
