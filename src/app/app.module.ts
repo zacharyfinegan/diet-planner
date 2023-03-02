@@ -2,7 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input'
 
 import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +34,12 @@ import { CalculatorService } from './calculator.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [CalculatorService],
   bootstrap: [AppComponent]

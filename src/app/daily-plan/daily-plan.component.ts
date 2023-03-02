@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/db.json'
 import { CalculatorService } from '../calculator.service';
 import { NgForm } from '@angular/forms'
+import { FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-daily-plan',
@@ -19,10 +21,15 @@ export class DailyPlanComponent implements OnInit {
     defaultAge = 30;
     defaultHeight = 73;
     defaultWeight = 193;
+    myGroup = new FormGroup ({
+        gender: new FormControl()
+    });
+
 
     constructor(private calculator: CalculatorService) { }
     ngOnInit(): void {
         this.dailyPlanArray = new Array;
+
     }
 
     getRandInt(maxIndex:number) {
@@ -80,7 +87,12 @@ export class DailyPlanComponent implements OnInit {
 
     calculateMacros(form: NgForm) {
         console.log("gender: " + form.value.gender)
-        console.log("age: " + form.value.age)
+        console.log("activityLevel: " + form.value.activityLevel)
+    }
+
+    filterData(gender: string) {
+        this.genders = [gender];
+        console.log(gender)
     }
 }
 
