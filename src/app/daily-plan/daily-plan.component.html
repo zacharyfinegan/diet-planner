@@ -1,12 +1,14 @@
-<h3>Enter the following information so your curated meal plan can be created.</h3>
+<h3>Enter the following information so your curated meal plan can be created. [not yet funcional]</h3>
 <form #form="ngForm" (ngSubmit)="calculateMacros(form)">
-    <input type="number" name="age" placeholder="Age" required ngModel min="18" max="80">
+    <input type="number" name="age" placeholder="Age" [(ngModel)]="defaultAge" ngModel min="18" max="80">
+
     <select>
         <option  disabled selected>Gender</option>
         <option name="gender" *ngFor="let gender of genders" required ngModel>{{gender}}</option>
     </select>
-    <input type="number" name="height" placeholder="Height (inches)" ng-init="72" required ngModel min="25" max="240">
-    <input type="number" name="weight" placeholder="Weight (pounds)" required ngModel min="39" max="420">
+
+    <input type="number" name="height" placeholder="Height (inches)"  [(ngModel)]="defaultHeight" required ngModel min="25" max="240">
+    <input type="number" name="weight" placeholder="Weight (pounds)" [(ngModel)]="defaultWeight" required ngModel min="39" max="420">
     <select>
         <option disabled selected>Activity Level</option>
         <option name="activityLevel" *ngFor="let activityLevel of activityLevels" [value]="activityLevel" required ngModel>{{activityLevel}}</option>
@@ -26,7 +28,7 @@
     Protein: 175g<br>
     Carbs: 380g<br>
     Fat: 81g<br>
-    Future iterations will allow adjustment of macro limits and more curated meal creation
+    These macros are not curated for your inputs. Future iterations will enable curated functionality.
     <thead>
         <tr>
             <th>Name</th>

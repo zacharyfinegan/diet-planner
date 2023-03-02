@@ -16,6 +16,9 @@ export class DailyPlanComponent implements OnInit {
     dailyPlanTotalMacros = [0,0,0,0];
     genders = ["Male", "Female"];
     activityLevels = ["BMR", "Sedentary", "Light", "Moderate", "Active", "Very Active", "Extra Active"];
+    defaultAge = 30;
+    defaultHeight = 73;
+    defaultWeight = 193;
 
     constructor(private calculator: CalculatorService) { }
     ngOnInit(): void {
@@ -76,7 +79,8 @@ export class DailyPlanComponent implements OnInit {
     }
 
     calculateMacros(form: NgForm) {
-
+        console.log("gender: " + form.value.gender)
+        console.log("age: " + form.value.age)
     }
 }
 
