@@ -11,37 +11,26 @@
     <input type="number" name="weight" placeholder="Weight (pounds)" [(ngModel)]="defaultWeight" required ngModel min="39" max="420">
 
 
-    
-<!-- <div [formGroup]="myGroup">
-    <select name="gender" 
-    formControlName="gender" 
-    ngValue="gender.value" 
-    [(ngModel)]="genders">
-        <option disabled selected>Gender</option>
-        <option (onSubmit)="filterData(gender)" *ngFor="let gender of genders" required [value]="gender[0]">{{gender}}</option>
-    </select>
-</div>
 
-    <select name="activityLevel">
-        <option disabled selected>Activity Level</option>
-        <option *ngFor="let activityLevel of activityLevels" [ngValue]="activityLevel" required>{{activityLevel}}</option>
-    </select> -->
-
-
-    <mat-form-field appearance="fill">
+    <mat-form-field>
         <mat-label>Gender</mat-label>
         <mat-select [(ngModel)]="genders[0]" name="gender">
+            <mat-option></mat-option>
             <mat-option *ngFor="let gender of genders" [value]="gender">
                 {{gender}}
             </mat-option>
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-        <select matNativeControl required>
-            <option [ngValue]="" value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
+
+
+    <mat-form-field >
+        <mat-label>Activity Level</mat-label>
+        <mat-select [(ngModel)]="activityLevels[0]" name="activityLevel">
+            <mat-option *ngFor="let activityLevel of activityLevels" [value]="activityLevel">
+                {{activityLevel}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
 
@@ -63,6 +52,7 @@
 
 
 <table id="hiddenUntilClick">
+    <br>
     This work-in-progress prototype outputs a plan that adds individual foods until one of the following limits are met (or will be surpassed with further additions) for the day:<br>
     Calories: 2,848<br>
     Protein: 175g<br>

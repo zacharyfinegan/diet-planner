@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/db.json'
 import { CalculatorService } from '../calculator.service';
 import { NgForm } from '@angular/forms'
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-daily-plan',
@@ -21,9 +19,7 @@ export class DailyPlanComponent implements OnInit {
     defaultAge = 30;
     defaultHeight = 73;
     defaultWeight = 193;
-    myGroup = new FormGroup ({
-        gender: new FormControl()
-    });
+
 
 
     constructor(private calculator: CalculatorService) { }

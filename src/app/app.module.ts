@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input'
+import { ThemePalette } from '@angular/material/core';
 
 import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';

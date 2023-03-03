@@ -1,3 +1,5 @@
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 body {
     background-color: #b3e6b3;
     font-family: monospace;
@@ -23,4 +25,3 @@ input {
     height: 17px;
     padding: 6px;
 }
-
