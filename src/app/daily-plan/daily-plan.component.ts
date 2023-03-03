@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/db.json'
 import { CalculatorService } from '../calculator.service';
-import { NgForm } from '@angular/forms'
+import { Form, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-daily-plan',
@@ -19,13 +21,25 @@ export class DailyPlanComponent implements OnInit {
     defaultAge = 30;
     defaultHeight = 73;
     defaultWeight = 193;
+    //disableSelect = new FormControl(false);
+    myForm: FormGroup;
+    genderControl = new FormControl('');
 
 
+    constructor(private calculator: CalculatorService, private fb: FormBuilder) { 
+        this.genderControl = new FormControl('');
 
-    constructor(private calculator: CalculatorService) { }
-    ngOnInit(): void {
+        this.myForm = this.fb.group({
+            genderControl: this.genderControl,
+            activityLevel: ''
+        })
+    }
+    ngOnInit() {
         this.dailyPlanArray = new Array;
-
+  /*       this.myForm = this.fb.group({
+            gender: '',
+            activityLevel: ''
+        }) */
     }
 
     getRandInt(maxIndex:number) {
@@ -81,14 +95,17 @@ export class DailyPlanComponent implements OnInit {
 
     }
 
-    calculateMacros(form: NgForm) {
-        console.log("gender: " + form.value.gender)
-        console.log("activityLevel: " + form.value.activityLevel)
+    calculateMacros(form: Form) {
+        console.log("gender: " + this.genderControl.value)
+        console.log("activityLevel: " + form)
+        console.log("age: " + form)
     }
 
     filterData(gender: string) {
         this.genders = [gender];
         console.log(gender)
     }
+
+    
 }
 

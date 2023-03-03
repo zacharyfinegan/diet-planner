@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input'
 import { ThemePalette } from '@angular/material/core';
+import { FormControl } from '@angular/forms';
 
 import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { CalculatorService } from './calculator.service';
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    //FormControl,
   ],
   providers: [CalculatorService],
   bootstrap: [AppComponent]
