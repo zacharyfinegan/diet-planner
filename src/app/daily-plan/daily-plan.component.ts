@@ -3,7 +3,7 @@ import macroData from '../../assets/json/db.json'
 import { Form, FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
-import { CalculatorComponent } from '../calculator/calculator.component';
+import { CalculatorService } from '../calculator.service';
 
 @Component({
   selector: 'app-daily-plan',
@@ -104,7 +104,7 @@ export class DailyPlanComponent implements OnInit {
 
     //THESE ARE THE USER INPUTS
     calculateMacros(form: Form) {
-        let calculator = new CalculatorComponent(form)
+        let calculator = new CalculatorService(form)
         console.log("gender: " + this.genderControl.value)
         calculator.calculate(form)
 

@@ -20,7 +20,7 @@ import { MacrosComponent } from './macros/macros.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DayTrackerComponent } from './day-tracker/day-tracker.component';
 import { DailyPlanComponent } from './daily-plan/daily-plan.component';
-import { CalculatorComponent } from './calculator/calculator.component';
+import { CalculatorService } from './calculator.service';
 
 @NgModule({
   declarations: [		
@@ -31,7 +31,6 @@ import { CalculatorComponent } from './calculator/calculator.component';
     NavigationComponent,
     DayTrackerComponent,
     DailyPlanComponent,
-    CalculatorComponent
    ],
   imports: [
     BrowserModule,
