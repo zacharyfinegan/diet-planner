@@ -2,21 +2,20 @@
 <form #form="ngForm" [formGroup]="myForm" (submit)="calculateMacros(form)">
 ADD SUBMISSION
 
-    <input type="number" name="age" placeholder="Age"   min="18" max="80" required >
+    <input type="number" name="age" placeholder="Age" required min="18" max="80" formControlName="ageControl">
 
 
-    <input type="number" name="height" placeholder="Height (inches)"  required  min="25" max="240">
+    <input type="number" name="height" placeholder="Height (inches)"  required  min="25" max="240" formControlName="heightControl">
 
 
-    <input type="number" name="weight" placeholder="Weight (pounds)" required  min="39" max="420">
+    <input type="number" name="weight" placeholder="Weight (pounds)" required  min="39" max="420" formControlName="weightControl">
 
 
 
     <mat-form-field>
         <mat-label>Gender</mat-label>
-        <mat-select name="genderControl" formControlName="genderControl"
-        [value]="genders" ngDefaultControl>
-            <mat-option *ngFor="let gender of genders">
+        <mat-select name="gender" formControlName="genderControl" ngDefaultControl required="">
+            <mat-option *ngFor="let gender of genders" [value]="gender">
                 {{gender}}
             </mat-option>
         </mat-select>
@@ -26,7 +25,7 @@ ADD SUBMISSION
 
     <mat-form-field >
         <mat-label>Activity Level</mat-label>
-        <mat-select name="activityLevel" formControlName="activityLevel" ngDefaultControl>
+        <mat-select name="activityLevel" formControlName="activityLevelControl" ngDefaultControl required>
             <mat-option *ngFor="let activityLevel of activityLevels" [value]="activityLevel">
                 {{activityLevel}}
             </mat-option>

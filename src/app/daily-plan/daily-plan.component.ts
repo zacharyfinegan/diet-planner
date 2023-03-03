@@ -24,22 +24,30 @@ export class DailyPlanComponent implements OnInit {
     //disableSelect = new FormControl(false);
     myForm: FormGroup;
     genderControl = new FormControl('');
+    activityLevelControl = new FormControl('');
+    ageControl = new FormControl('');
+    heightControl = new FormControl('');
+    weightControl = new FormControl('');
+
 
 
     constructor(private calculator: CalculatorService, private fb: FormBuilder) { 
         this.genderControl = new FormControl('');
+        this.activityLevelControl = new FormControl('');
+        this.ageControl = new FormControl('');
+        this.heightControl = new FormControl('');
+        this.weightControl = new FormControl('');
 
         this.myForm = this.fb.group({
             genderControl: this.genderControl,
-            activityLevel: ''
+            activityLevelControl: this.activityLevelControl,
+            ageControl: this.ageControl,
+            heightControl: this.heightControl,
+            weightControl: this.weightControl
         })
     }
     ngOnInit() {
         this.dailyPlanArray = new Array;
-  /*       this.myForm = this.fb.group({
-            gender: '',
-            activityLevel: ''
-        }) */
     }
 
     getRandInt(maxIndex:number) {
@@ -95,10 +103,11 @@ export class DailyPlanComponent implements OnInit {
 
     }
 
+    //THESE ARE THE USER INPUTS
     calculateMacros(form: Form) {
         console.log("gender: " + this.genderControl.value)
-        console.log("activityLevel: " + form)
-        console.log("age: " + form)
+        console.log("activityLevel: " + this.activityLevelControl.value)
+        console.log("age: " + this.heightControl.value)
     }
 
     filterData(gender: string) {
