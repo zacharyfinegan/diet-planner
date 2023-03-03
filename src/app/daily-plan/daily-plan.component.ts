@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import macroData from '../../assets/json/db.json'
-import { CalculatorService } from '../calculator.service';
 import { Form, FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { CalculatorComponent } from '../calculator/calculator.component';
 
 @Component({
   selector: 'app-daily-plan',
@@ -30,8 +30,7 @@ export class DailyPlanComponent implements OnInit {
     weightControl = new FormControl('');
 
 
-
-    constructor(private calculator: CalculatorService, private fb: FormBuilder) { 
+    constructor(private fb: FormBuilder) { 
         this.genderControl = new FormControl('');
         this.activityLevelControl = new FormControl('');
         this.ageControl = new FormControl('');
@@ -105,9 +104,10 @@ export class DailyPlanComponent implements OnInit {
 
     //THESE ARE THE USER INPUTS
     calculateMacros(form: Form) {
+        let calculator = new CalculatorComponent(form)
         console.log("gender: " + this.genderControl.value)
-        console.log("activityLevel: " + this.activityLevelControl.value)
-        console.log("age: " + this.heightControl.value)
+        calculator.calculate(form)
+
     }
 
     filterData(gender: string) {
