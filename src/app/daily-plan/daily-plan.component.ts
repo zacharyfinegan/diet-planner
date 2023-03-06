@@ -103,11 +103,13 @@ export class DailyPlanComponent implements OnInit {
     }
 
     //THESE ARE THE USER INPUTS
-    calculateMacros(form: Form) {
-        let calculator = new CalculatorService(form)
-        console.log("gender: " + this.genderControl.value)
-        calculator.calculate(form)
+    calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl) {
 
+        let calculator = new CalculatorService()
+
+        console.log("gender: " + this.genderControl.value)
+        calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl)
+        console.log()
     }
 
     filterData(gender: string) {

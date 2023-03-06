@@ -1,5 +1,5 @@
 <h3>Enter the following information so your curated meal plan can be created. [in development]</h3>
-<form #form="ngForm" [formGroup]="myForm" (submit)="calculateMacros(form)">
+<form #form="ngForm" [formGroup]="myForm" (submit)="calculateMacros(ageControl, weightControl, heightControl, genderControl, activityLevelControl)">
 ADD SUBMISSION
 
     <input type="number" name="age" placeholder="Age" required min="18" max="80" formControlName="ageControl">
