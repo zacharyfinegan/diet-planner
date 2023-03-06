@@ -1,6 +1,5 @@
 <h3>Enter the following information so your curated meal plan can be created. [in development]</h3>
-<form #form="ngForm" [formGroup]="myForm" (submit)="calculateMacros(ageControl, weightControl, heightControl, genderControl, activityLevelControl)">
-ADD SUBMISSION
+<form #form="ngForm" [formGroup]="myForm" (submit)="calculateMacros(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)">
 
     <input type="number" name="age" placeholder="Age" required min="18" max="80" formControlName="ageControl">
 
@@ -28,6 +27,17 @@ ADD SUBMISSION
         <mat-select name="activityLevel" formControlName="activityLevelControl" ngDefaultControl required>
             <mat-option *ngFor="let activityLevel of activityLevels" [value]="activityLevel">
                 {{activityLevel}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+
+    <mat-form-field >
+        <mat-label>Goal</mat-label>
+        <mat-select name="goal" formControlName="goalControl" ngDefaultControl required>
+            <mat-option *ngFor="let goal of goals" [value]="goal">
+                {{goal}}
             </mat-option>
         </mat-select>
     </mat-form-field>

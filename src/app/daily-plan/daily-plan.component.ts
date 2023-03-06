@@ -18,6 +18,7 @@ export class DailyPlanComponent implements OnInit {
     dailyPlanTotalMacros = [0,0,0,0];
     genders = ["Male", "Female"];
     activityLevels = ["BMR", "Sedentary", "Light", "Moderate", "Active", "Very Active", "Extra Active"];
+    goals = ["Maintain Weight", "Mild Weight Loss", "Weight Loss", "Extreme Weight Loss", "Mild Weight Gain", "Weight Gain", "Extreme Weight Gain"]
     defaultAge = 30;
     defaultHeight = 73;
     defaultWeight = 193;
@@ -25,6 +26,7 @@ export class DailyPlanComponent implements OnInit {
     myForm: FormGroup;
     genderControl = new FormControl('');
     activityLevelControl = new FormControl('');
+    goalControl = new FormControl('');
     ageControl = new FormControl('');
     heightControl = new FormControl('');
     weightControl = new FormControl('');
@@ -33,6 +35,7 @@ export class DailyPlanComponent implements OnInit {
     constructor(private fb: FormBuilder) { 
         this.genderControl = new FormControl('');
         this.activityLevelControl = new FormControl('');
+        this.goalControl = new FormControl('');
         this.ageControl = new FormControl('');
         this.heightControl = new FormControl('');
         this.weightControl = new FormControl('');
@@ -40,6 +43,7 @@ export class DailyPlanComponent implements OnInit {
         this.myForm = this.fb.group({
             genderControl: this.genderControl,
             activityLevelControl: this.activityLevelControl,
+            goalControl: this.goalControl,
             ageControl: this.ageControl,
             heightControl: this.heightControl,
             weightControl: this.weightControl
@@ -103,12 +107,12 @@ export class DailyPlanComponent implements OnInit {
     }
 
     //THESE ARE THE USER INPUTS
-    calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl) {
+    calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
 
         let calculator = new CalculatorService()
 
         console.log("gender: " + this.genderControl.value)
-        calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl)
+        calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
         console.log()
     }
 
