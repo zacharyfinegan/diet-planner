@@ -111,9 +111,13 @@ export class DailyPlanComponent implements OnInit {
 
         let calculator = new CalculatorService()
 
-        console.log("gender: " + this.genderControl.value)
-        calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
-        console.log()
+        let url = calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
+
+        this.openLink(url)
+    }
+
+    openLink(url: string) {
+        window.open(url, "_blank")
     }
 
     filterData(gender: string) {

@@ -44,7 +44,6 @@ export class CalculatorService {
         if (genderInput.value == "Male") {
             gender = "m";
         } else { gender = "f" };
-        console.log(genderInput.value)
         return gender;
     }
 
