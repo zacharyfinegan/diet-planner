@@ -4,6 +4,7 @@ import { Form, FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { CalculatorService } from '../calculator.service';
+import { WebScrapeService } from '../web-scrape.service';
 
 @Component({
   selector: 'app-daily-plan',
@@ -110,10 +111,14 @@ export class DailyPlanComponent implements OnInit {
     calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
 
         let calculator = new CalculatorService()
+        let webscraper = new WebScrapeService()
 
         let url = calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
 
         this.openLink(url)
+
+        //webscraper.scrape(url)
+
     }
 
     openLink(url: string) {
@@ -128,3 +133,10 @@ export class DailyPlanComponent implements OnInit {
     
 }
 
+
+
+
+
+/* https://www.calculator.net/macro-calculator.html?ctype=standard&cage=18&csex=f&cheightfeet=2&cheightinch=1&cpound=39&cheightmeter=180&ckg=65&cactivity=1.2&cgoal=l&cmop=0&cformula=m&cfatpct=20&printit=0&x=90&y=28 */
+
+/* https://www.calculator.net/macro-calculator.html?ctype=standard&cage=18&csex=f&cheightfeet=2&cheightinch=1&cpound=39&cheightmeter=180&ckg=65&cactivity=1.2&cgoal=l&cmop=0&cformula=m&cfatpct=20&printit=0&x=69&y=16 */
