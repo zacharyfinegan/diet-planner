@@ -44,10 +44,14 @@
 
 
 
-    <button 
+   <!--  <button 
         [disabled]="!form.valid" type="submit" (click)="createDailyPlan()" (click)="reveal()">
         Click to make a randomized daily meal plan
-    </button>
+    </button> -->
+    <button 
+    [disabled]="!form.valid" type="submit" (click)="reveal()">
+    Click to make a randomized daily meal plan
+</button>
 </form>
 
 
@@ -61,14 +65,15 @@
 
 
 <table id="hiddenUntilClick">
-    <br>
-    This work-in-progress prototype outputs a plan that adds individual foods until one of the following limits are met (or will be surpassed with further additions) for the day:<br>
-    Calories: 2,848<br>
-    Protein: 175g<br>
-    Carbs: 380g<br>
-    Fat: 81g<br>
-    These macros are not curated for your inputs. Future iterations will enable curated functionality.
+    Your recommended daily macronutrient breakdown is below:<br>
+
+    Calories: {{goalMacros[0]}}<br>
+    Protein: {{goalMacros[1]}}g<br>
+    Carbs: {{goalMacros[2]}}g<br>
+    Fat: {{goalMacros[3]}}g<br>
+
     <thead>
+        Example daily diet plan
         <tr>
             <th>Name</th>
             <th>Calories</th>

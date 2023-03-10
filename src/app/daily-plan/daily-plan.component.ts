@@ -13,9 +13,8 @@ import { WebScrapeService } from '../web-scrape.service';
 })
 export class DailyPlanComponent implements OnInit {
 
-    macro = macroData;
     dailyPlanArray = new Array;
-    maxIndex: number = this.macro.foods.length - 1;
+    maxIndex: number = macroData.foods.length - 1;
     dailyPlanTotalMacros = [0,0,0,0];
     genders = ["Male", "Female"];
     activityLevels = ["BMR", "Sedentary", "Light", "Moderate", "Active", "Very Active", "Extra Active"];
@@ -31,6 +30,7 @@ export class DailyPlanComponent implements OnInit {
     ageControl = new FormControl('');
     heightControl = new FormControl('');
     weightControl = new FormControl('');
+    goalMacros: Array<number> = []
 
 
     constructor(private fb: FormBuilder) { 
@@ -54,25 +54,22 @@ export class DailyPlanComponent implements OnInit {
         this.dailyPlanArray = new Array;
     }
 
-    getRandInt(maxIndex:number) {
-        return Math.floor(Math.random() * (this.maxIndex + 1)) 
-    }
-
     createDailyPlan() {
-        this.dailyPlanArray = new Array;
         let sumCalories = 0;
         let sumFat = 0;
         let sumCarbs = 0;
         let sumProtein = 0;
-        let maxCalories = 2848;
-        let maxCalories95 = maxCalories * .95;
-        let maxFat = 81;
-        let maxCarbs = 380;
-        let maxProtein = 175;
+
+        let maxCalories = this.goalMacros[0];
+        //let maxCalories95 = maxCalories * .95;
+        let maxFat = this.goalMacros[3];
+        let maxCarbs = this.goalMacros[2];
+        let maxProtein = this.goalMacros[1];
 
         while (sumCalories < maxCalories) {
+            console.log()
             let index = this.getRandInt(this.maxIndex)
-            let food = this.macro.foods[index]
+            let food = macroData.foods[index]
 
             if (sumCalories + food.Calories <= maxCalories) {
                 if (sumFat + food.Fat <= maxFat) {
@@ -90,10 +87,15 @@ export class DailyPlanComponent implements OnInit {
             }
             else break;
         } 
+        console.log(this.dailyPlanArray)
         this.dailyPlanTotalMacros[0] = sumCalories;
         this.dailyPlanTotalMacros[1] = sumFat;
         this.dailyPlanTotalMacros[2] = sumCarbs;
         this.dailyPlanTotalMacros[3] = sumProtein;
+    }
+
+    getRandInt(maxIndex:number) {
+        return Math.floor(Math.random() * (this.maxIndex)) 
     }
 
     reveal() {
@@ -103,40 +105,27 @@ export class DailyPlanComponent implements OnInit {
         }
     }
 
-    addToWeekly() {
+ /*    addToWeekly() {
 
-    }
+    } */
 
-    //THESE ARE THE USER INPUTS
-    calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
+    async calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
 
         let calculator = new CalculatorService()
         let webscraper = new WebScrapeService()
 
         let url = calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
 
-        this.openLink(url)
+        //this.openLink(url)
 
-        webscraper.scrape(url)
+        this.goalMacros = await webscraper.scrape(url)
+
+        this.createDailyPlan()
 
     }
 
     openLink(url: string) {
-        window.open(url, "_blank")
+        //window.open(url, "_blank")
     }
-
-    filterData(gender: string) {
-        this.genders = [gender];
-        console.log(gender)
-    }
-
     
 }
-
-
-
-
-
-/* https://www.calculator.net/macro-calculator.html?ctype=standard&cage=18&csex=f&cheightfeet=2&cheightinch=1&cpound=39&cheightmeter=180&ckg=65&cactivity=1.2&cgoal=l&cmop=0&cformula=m&cfatpct=20&printit=0&x=90&y=28 */
-
-/* https://www.calculator.net/macro-calculator.html?ctype=standard&cage=18&csex=f&cheightfeet=2&cheightinch=1&cpound=39&cheightmeter=180&ckg=65&cactivity=1.2&cgoal=l&cmop=0&cformula=m&cfatpct=20&printit=0&x=69&y=16 */
