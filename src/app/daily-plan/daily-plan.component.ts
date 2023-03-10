@@ -117,7 +117,7 @@ export class DailyPlanComponent implements OnInit {
 
         this.openLink(url)
 
-        //webscraper.scrape(url)
+        webscraper.scrape(url)
 
     }
 
