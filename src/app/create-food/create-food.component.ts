@@ -106,9 +106,7 @@ export class CreateFoodComponent implements OnInit {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "application/json"
-           }
-           
-        /* let bodyContent = JSON.stringify({"id": newFoodName, "Calories": this.newFoodMacrosArray[0], "Fat": this.newFoodMacrosArray[1], "Carbs": this.newFoodMacrosArray[2], "Protein": this.newFoodMacrosArray[3]}); */
+        }
         let bodyContent = JSON.stringify(newFood);
            console.log(bodyContent)
         let response = await fetch("http://localhost:3000/foods", { 
@@ -119,6 +117,20 @@ export class CreateFoodComponent implements OnInit {
            
         let data = await response.text();
         return;
+    }
+
+    async deleteFood(food:any) {
+        let headersList = {
+            "Accept": "*/*",
+            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+            "Content-Type": "application/json"
+        }
+        let id = food.id
+        let url = "http://localhost:3000/foods/" + food.id
+        let response = await fetch(url, {
+            method: "DELETE",
+        })
+
     }
 
     createEntirelyNewFood(form: NgForm) {
