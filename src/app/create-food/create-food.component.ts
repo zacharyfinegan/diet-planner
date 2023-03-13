@@ -24,7 +24,7 @@ export class CreateFoodComponent implements OnInit {
 
     addToNewFood(food:Object) {
     let counter:number = 0;
-        if (this.createFoodArray.length > 0) {
+        /* if (this.createFoodArray.length > 0) {
             for (let i = 0; i < this.createFoodArray.length; i++) {
                 if (JSON.stringify(this.createFoodArray[i]) == JSON.stringify(Object.values(food))) {
                     counter++;
@@ -33,15 +33,15 @@ export class CreateFoodComponent implements OnInit {
                     }
                 }
             }
-        }
+        } */
         this.createFoodArray.push(Object.values(food));
         this.totalMacros();
     }
 
-    changeQty(food:Object) {
+/*     changeQty(food:Object) {
         let count = 2;
         this.qtyHTML = "x" + count;
-    }
+    } */
 
     totalMacros() {
         let totalCalories = 0;

@@ -1,36 +1,3 @@
-<h2 id="hiddenTitle">Current combination</h2>
-<table class="createFoodTable" id="hiddenTable">
-    <thead>
-        <td></td>
-            <th>Name</th>
-            <th>Calories</th>
-            <th>Fat</th>
-            <th>Carbs</th>
-            <th>Protein</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let food of createFoodArray">            
-            <button (click)="remove(food)" id="food-to-remove">Remove</button>
-            <td class="food-name">{{food[0]}}</td>
-            <td>{{food[1]}}</td>
-            <td>{{food[2]}}</td>
-            <td>{{food[3]}}</td>
-            <td>{{food[4]}}</td>
-            <td [innerHTML]="qtyHTML"></td>
-        </tr>
-        <tr id="totals" *ngIf="createFoodArray.length> 0">
-            <td>Totals:</td>
-            <input type="text" placeholder="Input new food name" #newFoodName (keyup.enter)="true">
-            <button (click)="createNewFood(newFoodName.value)">Create Food</button>
-            {{newFoodName.value}}
-            <td>{{newFoodMacrosArray[0]}}</td>
-            <td>{{newFoodMacrosArray[1]}}</td>
-            <td>{{newFoodMacrosArray[2]}}</td>
-            <td>{{newFoodMacrosArray[3]}}</td>
-        </tr>
-    </tbody>
-</table>
-
 <form #form="ngForm" (ngSubmit)="createEntirelyNewFood(form)">
     <h3>Create an entirely new food to store in the database</h3>
     <table class="createFoodTable">
@@ -57,6 +24,39 @@
 <h2>OR...</h2>
 <h3>Combine saved foods and store that new food in the database.</h3>
 <h4>For example, "Tortilla" + "Ground Beef" + "Egg" x2 + "Avocado" = "Breakfast Burrito"</h4>
+
+<h2 id="hiddenTitle">Current combination</h2>
+<table class="createFoodTable" id="hiddenTable">
+    <thead>
+        <td></td>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Carbs</th>
+            <th>Protein</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let food of createFoodArray">            
+            <button (click)="remove(food)" id="food-to-remove">Remove</button>
+            <td class="food-name">{{food[0]}}</td>
+            <td>{{food[1]}}</td>
+            <td>{{food[2]}}</td>
+            <td>{{food[3]}}</td>
+            <td>{{food[4]}}</td>
+<!--             <td [innerHTML]="qtyHTML"></td>-->
+        </tr>
+        <tr id="totals" *ngIf="createFoodArray.length> 0">
+            <td>Totals:</td>
+            <input type="text" placeholder="Input new food name" #newFoodName (keyup.enter)="true">
+            <button (click)="createNewFood(newFoodName.value)">Create Food</button>
+            {{newFoodName.value}}
+            <td>{{newFoodMacrosArray[0]}}</td>
+            <td>{{newFoodMacrosArray[1]}}</td>
+            <td>{{newFoodMacrosArray[2]}}</td>
+            <td>{{newFoodMacrosArray[3]}}</td>
+        </tr>
+    </tbody>
+</table>
 
 <table>
     <thead>

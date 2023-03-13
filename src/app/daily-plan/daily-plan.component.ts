@@ -22,7 +22,6 @@ export class DailyPlanComponent implements OnInit {
     defaultAge = 30;
     defaultHeight = 73;
     defaultWeight = 193;
-    //disableSelect = new FormControl(false);
     myForm: FormGroup;
     genderControl = new FormControl('');
     activityLevelControl = new FormControl('');
@@ -30,8 +29,7 @@ export class DailyPlanComponent implements OnInit {
     ageControl = new FormControl('');
     heightControl = new FormControl('');
     weightControl = new FormControl('');
-    goalMacros: Array<number> = []
-
+    goalMacros: Array<any> = []
 
     constructor(private fb: FormBuilder) { 
         this.genderControl = new FormControl('');
@@ -54,20 +52,13 @@ export class DailyPlanComponent implements OnInit {
         this.dailyPlanArray = new Array;
     }
 
-    createDailyPlan() {
+    createDailyPlan(maxCalories: number, maxProtein: number, maxCarbs: number, maxFat: number) {
         let sumCalories = 0;
         let sumFat = 0;
         let sumCarbs = 0;
         let sumProtein = 0;
 
-        let maxCalories = this.goalMacros[0];
-        //let maxCalories95 = maxCalories * .95;
-        let maxFat = this.goalMacros[3];
-        let maxCarbs = this.goalMacros[2];
-        let maxProtein = this.goalMacros[1];
-
         while (sumCalories < maxCalories) {
-            console.log()
             let index = this.getRandInt(this.maxIndex)
             let food = macroData.foods[index]
 
@@ -87,7 +78,6 @@ export class DailyPlanComponent implements OnInit {
             }
             else break;
         } 
-        console.log(this.dailyPlanArray)
         this.dailyPlanTotalMacros[0] = sumCalories;
         this.dailyPlanTotalMacros[1] = sumFat;
         this.dailyPlanTotalMacros[2] = sumCarbs;
@@ -116,16 +106,23 @@ export class DailyPlanComponent implements OnInit {
 
         let url = calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
 
-        //this.openLink(url)
-
         this.goalMacros = await webscraper.scrape(url)
 
-        this.createDailyPlan()
+        for (let i = 0; i < this.goalMacros.length; i++) {
+            this.goalMacros[i] = Number(this.goalMacros[i].replace(',',''))
+        }
 
-    }
+        let maxCalories = Number(this.goalMacros[0])
+        let maxProtein = Number(this.goalMacros[1])
+        let maxCarbs = Number(this.goalMacros[2])
+        let maxFat = Number(this.goalMacros[3])
+        
+        this.createDailyPlan(maxCalories, maxProtein, maxCarbs, maxFat)
+
+        //this.openLink(url)
+     }
 
     openLink(url: string) {
         //window.open(url, "_blank")
     }
-    
 }
