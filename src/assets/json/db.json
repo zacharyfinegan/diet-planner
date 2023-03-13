@@ -1,13 +1,6 @@
 {
   "foods": [
     {
-      "id": "Egg, Large, Grade A",
-      "Calories": 70,
-      "Fat": 5,
-      "Carbs": 1,
-      "Protein": 6
-    },
-    {
       "id": "Whey Protein Isolate: AllMax IsoNatural Pure, Chocolate, 1 scoop",
       "Calories": 120,
       "Fat": 0.5,
@@ -335,6 +328,13 @@
       "Fat": 4,
       "Carbs": 49,
       "Protein": 0
+    },
+    {
+      "id": "Egg, Large Grade A",
+      "Calories": 70,
+      "Fat": 5,
+      "Carbs": 0,
+      "Protein": 6
     }
   ],
   "weeklyPlan": [

@@ -57,10 +57,13 @@ export class DailyPlanComponent implements OnInit {
         let sumFat = 0;
         let sumCarbs = 0;
         let sumProtein = 0;
+        let index = this.getRandInt(this.maxIndex)
+        let food = macroData.foods[index]
+        this.dailyPlanArray.push(food)
 
         while (sumCalories < maxCalories) {
             let index = this.getRandInt(this.maxIndex)
-            let food = macroData.foods[index]
+            
 
             if (sumCalories + food.Calories <= maxCalories) {
                 if (sumFat + food.Fat <= maxFat) {
@@ -71,7 +74,22 @@ export class DailyPlanComponent implements OnInit {
                             sumCarbs += food.Carbs;
                             sumProtein += food.Protein;
 
-                            this.dailyPlanArray.push(food)
+                            //THIS BLOCK IS NEW
+                            for (let i = 0; i < this.dailyPlanArray.length; i++) { 
+                                let counter = 0;
+                                console.log(food);
+                                console.log(this.dailyPlanArray)
+                                if (food == this.dailyPlanArray[i]){
+                                    counter++
+                                }
+                                if (counter <= 3) {
+                                    this.dailyPlanArray.push(food)
+                                }
+                            }  
+
+                            
+
+                            //this.dailyPlanArray.push(food)
                         }
                     }
                 }

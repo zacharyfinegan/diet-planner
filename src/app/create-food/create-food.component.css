@@ -12,7 +12,7 @@ th {
     padding: 8px;
 }
 td {
-    padding: 8px;
+    padding: 1px;
     font-size: 15px;
 }
 
@@ -41,4 +41,11 @@ tr:nth-child(even) {
 
 #hiddenTable {
     display:none;
+}
+
+#popup {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    text-align: center;
 }

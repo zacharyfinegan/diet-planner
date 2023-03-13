@@ -2,6 +2,7 @@
     <h3>Create an entirely new food to store in the database</h3>
     <table class="createFoodTable">
         <thead>
+                <th></th>
                 <th>Name</th>
                 <th>Calories</th>
                 <th>Fat</th>
@@ -10,7 +11,7 @@
         </thead>
         <tbody>
             <tr>
-                <button [disabled]="!form.valid" type="submit">Save New Food</button>
+                <td><button [disabled]="!form.valid" type="submit">Save New Food</button></td>
                 <td><input required type="text" placeholder="Enter food name + serving size" size="30" name="Name" ngModel></td>
                 <td><input required type="number" min="0" placeholder="Enter calories" name="Calories" ngModel></td>
                 <td><input required type="number" min="0" placeholder="Enter grams fat" name="Fat" ngModel></td>
@@ -55,6 +56,7 @@
             <td>{{newFoodMacrosArray[2]}}</td>
             <td>{{newFoodMacrosArray[3]}}</td>
         </tr>
+        <button (click)="reset()" (click)="hide()">Reset Current Combination</button> 
     </tbody>
 </table>
 
@@ -71,14 +73,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let food of macro.foods">
-            <button (click)="addToNewFood(food)" (click)="reveal()">Add</button>
+            <td><button (click)="addToNewFood(food)" (click)="reveal()">Add</button></td>
             <td>{{food.id}}</td>
             <td>{{food.Calories}}</td>
             <td>{{food.Fat}}</td>
             <td>{{food.Carbs}}</td>
             <td>{{food.Protein}}</td>
-            <button (click)="deleteFood(food)">Delete from DB</button>
+            <td><button (click)="deleteFood(food)">Delete from DB</button></td>
         </tr>
     </tbody>
 </table>
-<button (click)="reset()">Reset</button> 

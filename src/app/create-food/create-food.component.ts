@@ -130,7 +130,10 @@ export class CreateFoodComponent implements OnInit {
         let response = await fetch(url, {
             method: "DELETE",
         })
-
+    }
+    popup() {
+        let popup = document.getElementById("popup")
+        popup!.classList.toggle("show")
     }
 
     createEntirelyNewFood(form: NgForm) {
@@ -169,6 +172,17 @@ export class CreateFoodComponent implements OnInit {
         let hiddenTable = document.getElementById("hiddenTable")
         if (hiddenTable!.style.display = "none") {
             hiddenTable!.style.display = "block";
+        }
+    }
+    hide() {
+        let hiddenTable = document.getElementById("hiddenTable")
+        let hiddenTitle = document.getElementById("hiddenTitle")
+
+        if (hiddenTable!.style.display = "block") {
+            hiddenTable!.style.display = "none"
+        }
+        if (hiddenTitle!.style.display = "block") {
+            hiddenTitle!.style.display = "none"
         }
     }
 }
