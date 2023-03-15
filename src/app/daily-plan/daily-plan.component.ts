@@ -19,9 +19,6 @@ export class DailyPlanComponent implements OnInit {
     genders = ["Male", "Female"];
     activityLevels = ["BMR", "Sedentary", "Light", "Moderate", "Active", "Very Active", "Extra Active"];
     goals = ["Maintain Weight", "Mild Weight Loss", "Weight Loss", "Extreme Weight Loss", "Mild Weight Gain", "Weight Gain", "Extreme Weight Gain"]
-    defaultAge = 30;
-    defaultHeight = 73;
-    defaultWeight = 193;
     myForm: FormGroup;
     genderControl = new FormControl('');
     activityLevelControl = new FormControl('');
@@ -63,38 +60,30 @@ export class DailyPlanComponent implements OnInit {
 
         while (sumCalories < maxCalories) {
             let index = this.getRandInt(this.maxIndex)
+            let food = macroData.foods[index]
             
-
             if (sumCalories + food.Calories <= maxCalories) {
                 if (sumFat + food.Fat <= maxFat) {
                     if (sumCarbs + food.Carbs <= maxCarbs) {
                         if (sumProtein + food.Protein <= maxProtein) {
-                            sumCalories += food.Calories;
-                            sumFat += food.Fat;
-                            sumCarbs += food.Carbs;
-                            sumProtein += food.Protein;
-
-                            //THIS BLOCK IS NEW
+                            let counter = 0;
                             for (let i = 0; i < this.dailyPlanArray.length; i++) { 
-                                let counter = 0;
-                                console.log(food);
-                                console.log(this.dailyPlanArray)
-                                if (food == this.dailyPlanArray[i]){
+                                if (this.dailyPlanArray[i] == food) {
                                     counter++
                                 }
-                                if (counter <= 3) {
-                                    this.dailyPlanArray.push(food)
-                                }
                             }  
-
-                            
-
+                            if (counter <= 3) {
+                                this.dailyPlanArray.push(food)
+                                sumCalories += food.Calories;
+                                sumFat += food.Fat;
+                                sumCarbs += food.Carbs;
+                                sumProtein += food.Protein;
+                            } else continue;
                             //this.dailyPlanArray.push(food)
                         }
                     }
                 }
-            }
-            else break;
+            } else break;
         } 
         this.dailyPlanTotalMacros[0] = sumCalories;
         this.dailyPlanTotalMacros[1] = sumFat;
@@ -113,12 +102,9 @@ export class DailyPlanComponent implements OnInit {
         }
     }
 
- /*    addToWeekly() {
-
-    } */
-
     async calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
 
+        this.dailyPlanArray = [];
         let calculator = new CalculatorService()
         let webscraper = new WebScrapeService()
 
@@ -134,6 +120,11 @@ export class DailyPlanComponent implements OnInit {
         let maxProtein = Number(this.goalMacros[1])
         let maxCarbs = Number(this.goalMacros[2])
         let maxFat = Number(this.goalMacros[3])
+
+        if (typeof this.goalMacros[0] != 'string') {
+            this.goalMacros[0] = "Your macronutrient goals need to be assessed by a doctor. Please input"
+
+        }
         
         this.createDailyPlan(maxCalories, maxProtein, maxCarbs, maxFat)
 

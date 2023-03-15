@@ -1,15 +1,12 @@
-<h3>Enter the following information so your curated meal plan can be created. [in development]</h3>
+<h3>Enter the following information so your curated meal plan can be created:</h3>
+
 <form #form="ngForm" [formGroup]="myForm" (submit)="calculateMacros(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)">
 
-    <input type="number" name="age" placeholder="Age" required min="18" max="80" formControlName="ageControl">
+    <input type="number" name="age" placeholder="Age (18-80)" required min="18" max="80" formControlName="ageControl">
 
+    <input type="number" name="height" placeholder="Height (48-96 inches)"  required  min="48" max="96" formControlName="heightControl">
 
-    <input type="number" name="height" placeholder="Height (inches)"  required  min="48" max="96" formControlName="heightControl">
-
-
-    <input type="number" name="weight" placeholder="Weight (pounds)" required  min="108" max="42069" formControlName="weightControl">
-
-
+    <input type="number" name="weight" placeholder="Weight (108-1400 pounds)" required  min="108" max="1400" formControlName="weightControl">
 
     <mat-form-field>
         <mat-label>Gender</mat-label>
@@ -20,8 +17,6 @@
         </mat-select>
     </mat-form-field>
 
-
-
     <mat-form-field >
         <mat-label>Activity Level</mat-label>
         <mat-select name="activityLevel" formControlName="activityLevelControl" ngDefaultControl required>
@@ -30,8 +25,6 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-
-
 
     <mat-form-field >
         <mat-label>Goal</mat-label>
@@ -77,27 +70,27 @@
         <tr>
             <th>Name</th>
             <th>Calories</th>
-            <th>Fat</th>
-            <th>Carbs</th>
             <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fat</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let food of dailyPlanArray">
             <td>{{food.id}}</td>
             <td>{{food.Calories}}</td>
-            <td>{{food.Fat}}</td>
-            <td>{{food.Carbs}}</td>
             <td>{{food.Protein}}</td>
+            <td>{{food.Carbs}}</td>
+            <td>{{food.Fat}}</td>
         </tr>
         <hr>
         <tr id="totals">
             <td>Totals:</td>
             <td>{{dailyPlanTotalMacros[0]}}</td>
-            <td>{{dailyPlanTotalMacros[1]}}</td>
-            <td>{{dailyPlanTotalMacros[2]}}</td>
             <td>{{dailyPlanTotalMacros[3]}}</td>
+            <td>{{dailyPlanTotalMacros[2]}}</td>
+            <td>{{dailyPlanTotalMacros[1]}}</td>
         </tr>
     </tbody>
-    <button click="addToWeekly">Add this daily meal plan to weekly meal plan</button>
+    <!-- <button click="addToWeekly">Add this daily meal plan to weekly meal plan</button> -->
 </table>
