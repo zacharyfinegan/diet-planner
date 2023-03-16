@@ -49,6 +49,53 @@ export class DailyPlanComponent implements OnInit {
         this.dailyPlanArray = new Array;
     }
 
+    async calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
+
+        this.dailyPlanArray = [];
+        let calculator = new CalculatorService()
+        let webscraper = new WebScrapeService()
+
+        let url = calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
+
+        this.goalMacros = await webscraper.scrape(url)
+
+        for (let i = 0; i < this.goalMacros.length; i++) {
+            this.goalMacros[i] = Number(this.goalMacros[i].replace(',',''))
+        }
+        let maxCalories = Number(this.goalMacros[0])
+        let maxProtein = Number(this.goalMacros[1])
+        let maxCarbs = Number(this.goalMacros[2])
+        let maxFat = Number(this.goalMacros[3])
+        
+        let counter = 0;
+        for (let i = 0; i < this.goalMacros.length; i++) {
+            if (this.goalMacros[i] == 0) {
+                counter++;
+            }
+            if (counter == 3) {
+                console.log("YOU GOTTA SEE A DOCTOR")
+                this.doctorError();
+                return;
+            }
+        }
+        
+        this.createDailyPlan(maxCalories, maxProtein, maxCarbs, maxFat)
+
+        //this.openLink(url)
+     }
+
+    doctorError() {
+        let doctorHidden = document.getElementById("doctorErrorHidden")
+        let otherHidden = document.getElementById("hiddenUntilClick")
+
+        if (otherHidden!.style.display = "block") {
+            otherHidden!.style.display = "none"
+        }
+        if (doctorHidden!.style.display = "none") {
+            doctorHidden!.style.display = "block"
+        }
+    }
+
     createDailyPlan(maxCalories: number, maxProtein: number, maxCarbs: number, maxFat: number) {
         let sumCalories = 0;
         let sumFat = 0;
@@ -89,49 +136,25 @@ export class DailyPlanComponent implements OnInit {
         this.dailyPlanTotalMacros[1] = sumFat;
         this.dailyPlanTotalMacros[2] = sumCarbs;
         this.dailyPlanTotalMacros[3] = sumProtein;
+
+        this.revealMacros();
     }
 
     getRandInt(maxIndex:number) {
         return Math.floor(Math.random() * (this.maxIndex)) 
     }
 
-    reveal() {
-        let hidden = document.getElementById("hiddenUntilClick")!;
-        if (hidden.style.display = "none") {
-            hidden.style.display = "block";
+    revealMacros() {
+        let hiddenMacros = document.getElementById("hiddenUntilClick")!;
+        let otherHidden = document.getElementById("doctorErrorHidden")
+
+        if (otherHidden!.style.display = "block") {
+            otherHidden!.style.display = "none"
+        }
+        if (hiddenMacros!.style.display = "none") {
+            hiddenMacros!.style.display = "block";
         }
     }
-
-    async calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
-
-        this.dailyPlanArray = [];
-        let calculator = new CalculatorService()
-        let webscraper = new WebScrapeService()
-
-        let url = calculator.calculate(ageControl, weightControl, heightControl, genderControl, activityLevelControl, goalControl)
-
-        this.goalMacros = await webscraper.scrape(url)
-
-        for (let i = 0; i < this.goalMacros.length; i++) {
-            this.goalMacros[i] = Number(this.goalMacros[i].replace(',',''))
-        }
-        let maxCalories = Number(this.goalMacros[0])
-        let maxProtein = Number(this.goalMacros[1])
-        let maxCarbs = Number(this.goalMacros[2])
-        let maxFat = Number(this.goalMacros[3])
-
-        console.log(typeof maxCalories)
-        
-        for (let i = 0; i < this.goalMacros.length; i++) {
-            if (this.goalMacros[i] == "NaN") {
-                console.log("hereeeeeeee")
-            }
-        }
-        
-        this.createDailyPlan(maxCalories, maxProtein, maxCarbs, maxFat)
-
-        //this.openLink(url)
-     }
 
     openLink(url: string) {
         //window.open(url, "_blank")

@@ -35,12 +35,12 @@
         </mat-select>
     </mat-form-field>
 
-    <button [disabled]="!form.valid" type="submit" (click)="reveal()">
+    <button [disabled]="!form.valid" type="submit">
         Click to make a randomized daily meal plan
     </button>
 </form>
 
-
+<p id="doctorErrorHidden">This calculator is not equipped to handle your macronutrient needs given those inputs. Please seek advice from a medical professional.</p>
 
 <table id="hiddenUntilClick">
     Your recommended daily macronutrient breakdown is below:<br>

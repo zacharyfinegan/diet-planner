@@ -2,6 +2,10 @@
     display: none;
 }
 
+#doctorErrorHidden {
+    display: none;
+}
+
 #totals {
     font-weight: bold;
 }
