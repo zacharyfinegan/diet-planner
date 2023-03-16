@@ -67,7 +67,6 @@ export class CalculatorService {
         else if (activityLevelInput.value == "Extra Active") {
             value = 1.9
         }
-
         return value;
     }
 
@@ -95,7 +94,6 @@ export class CalculatorService {
         if (goalInput.value == "Extreme Weight Gain") {
             value = "g2"
         }
-
         return value;
     }
 }

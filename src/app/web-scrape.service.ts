@@ -29,9 +29,6 @@ export class WebScrapeService {
 
         let macros: Array<number> = [];
 
-        /* if ((calories.type != number) && (protein.type != number) && (carb.type != number) && fat.type != number) {
-            macros.push (0,0,0,0);
-        } */
         macros.push(calories, protein, carb, fat)
         return macros;
     }  

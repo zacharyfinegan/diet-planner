@@ -197,13 +197,6 @@
       "Protein": 0
     },
     {
-      "id": "avonanagurt",
-      "Calories": 330,
-      "Fat": 11,
-      "Carbs": 42,
-      "Protein": 20
-    },
-    {
       "id": "McDonalds Quarter Pounder",
       "Calories": 417,
       "Fat": 20,
@@ -336,8 +329,5 @@
       "Carbs": 0,
       "Protein": 6
     }
-  ],
-  "weeklyPlan": [
-    {}
   ]
 }

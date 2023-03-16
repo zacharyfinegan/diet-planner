@@ -23,25 +23,9 @@ export class CreateFoodComponent implements OnInit {
     }
 
     addToNewFood(food:Object) {
-    let counter:number = 0;
-        /* if (this.createFoodArray.length > 0) {
-            for (let i = 0; i < this.createFoodArray.length; i++) {
-                if (JSON.stringify(this.createFoodArray[i]) == JSON.stringify(Object.values(food))) {
-                    counter++;
-                    if (counter > 0) { 
-                        this.changeQty(food);
-                    }
-                }
-            }
-        } */
         this.createFoodArray.push(Object.values(food));
         this.totalMacros();
     }
-
-/*     changeQty(food:Object) {
-        let count = 2;
-        this.qtyHTML = "x" + count;
-    } */
 
     totalMacros() {
         let totalCalories = 0;
@@ -74,7 +58,7 @@ export class CreateFoodComponent implements OnInit {
         this.newFoodMacrosArray[1] = this.newFoodMacrosArray[1] - food[2]
         this.newFoodMacrosArray[2] = this.newFoodMacrosArray[2] - food[3]
         this.newFoodMacrosArray[3] = this.newFoodMacrosArray[3] - food[4]
-        console.log(this.newFoodMacrosArray)
+
         if ((this.newFoodMacrosArray[0] == 0) && (this.newFoodMacrosArray[1] == 0) && (this.newFoodMacrosArray[2] == 0) && (this.newFoodMacrosArray[3] == 0)) {
             let hiddenTitle = document.getElementById("hiddenTitle")!;
             if (hiddenTitle.style.display = "block") {
@@ -96,7 +80,6 @@ export class CreateFoodComponent implements OnInit {
             Carbs: this.newFoodMacrosArray[2],
             Protein: this.newFoodMacrosArray[3]
         }
-        console.log(this.newFood)
         this.userMadeFoodsArray.push(this.newFood);
         this.saveNewFood(this.newFood);
     }
@@ -137,10 +120,6 @@ export class CreateFoodComponent implements OnInit {
     }
 
     createEntirelyNewFood(form: NgForm) {
-        /* Cal = parseInt(Cal)
-        Fat = parseInt(Fat)
-        Carbs = parseInt(Carbs)
-        Protein = parseInt(Protein) */
 
         let id  = form.value.Name
         let cal = form.value.Calories
@@ -155,8 +134,6 @@ export class CreateFoodComponent implements OnInit {
             Carbs: parseInt(car),
             Protein: parseInt(pro)
         };
-        console.log(typeof id);
-        console.log(typeof pro)
         this.newFoodMacrosArray[0] = parseInt(cal);
         this.newFoodMacrosArray[1] = parseInt(fat);
         this.newFoodMacrosArray[2] = parseInt(car);

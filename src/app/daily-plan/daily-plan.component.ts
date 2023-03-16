@@ -51,7 +51,7 @@ export class DailyPlanComponent implements OnInit {
 
     async calculateMacros(ageControl: FormControl, weightControl: FormControl, heightControl: FormControl, genderControl: FormControl, activityLevelControl: FormControl, goalControl: FormControl) {
 
-        this.dailyPlanArray = [];
+        this.dailyPlanArray = [];//resets array to prevent multiple instances on press
         let calculator = new CalculatorService()
         let webscraper = new WebScrapeService()
 
@@ -80,8 +80,6 @@ export class DailyPlanComponent implements OnInit {
         }
         
         this.createDailyPlan(maxCalories, maxProtein, maxCarbs, maxFat)
-
-        //this.openLink(url)
      }
 
     doctorError() {
@@ -126,7 +124,6 @@ export class DailyPlanComponent implements OnInit {
                                 sumCarbs += food.Carbs;
                                 sumProtein += food.Protein;
                             } else continue;
-                            //this.dailyPlanArray.push(food)
                         }
                     }
                 }
@@ -156,7 +153,7 @@ export class DailyPlanComponent implements OnInit {
         }
     }
 
-    openLink(url: string) {
+    openLink(url: string) { //not needed unless needed for...reasons
         //window.open(url, "_blank")
     }
 }
