@@ -115,15 +115,17 @@ export class DailyPlanComponent implements OnInit {
         for (let i = 0; i < this.goalMacros.length; i++) {
             this.goalMacros[i] = Number(this.goalMacros[i].replace(',',''))
         }
-
         let maxCalories = Number(this.goalMacros[0])
         let maxProtein = Number(this.goalMacros[1])
         let maxCarbs = Number(this.goalMacros[2])
         let maxFat = Number(this.goalMacros[3])
 
-        if (typeof this.goalMacros[0] != 'string') {
-            this.goalMacros[0] = "Your macronutrient goals need to be assessed by a doctor. Please input"
-
+        console.log(typeof maxCalories)
+        
+        for (let i = 0; i < this.goalMacros.length; i++) {
+            if (this.goalMacros[i] == "NaN") {
+                console.log("hereeeeeeee")
+            }
         }
         
         this.createDailyPlan(maxCalories, maxProtein, maxCarbs, maxFat)
