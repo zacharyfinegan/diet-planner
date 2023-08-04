@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import macroData from '../../assets/json/db.json';
+import macroData from 'db.json';
 
 @Component({
   selector: 'app-home',

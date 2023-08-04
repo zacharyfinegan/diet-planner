@@ -1,4 +1,21 @@
 {
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "foods": [
     {
       "id": "Whey Protein Isolate: AllMax IsoNatural Pure, Chocolate, 1 scoop",
@@ -48,13 +65,6 @@
       "Fat": 2,
       "Carbs": 19,
       "Protein": 2
-    },
-    {
-      "id": "Banana",
-      "Calories": 110,
-      "Fat": 0,
-      "Carbs": 28,
-      "Protein": 1
     },
     {
       "id": "Chicken Breast, Boneless, Skinless, Food Lion, 4oz",

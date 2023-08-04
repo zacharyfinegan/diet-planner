@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import macroData from '../../assets/json/db.json';
+import macroData from 'db.json';
 import { SelectorContext } from '@angular/compiler';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms'
@@ -91,13 +91,12 @@ export class CreateFoodComponent implements OnInit {
             "Content-Type": "application/json"
         }
         let bodyContent = JSON.stringify(newFood);
-           console.log(bodyContent)
-        let response = await fetch("http://localhost:3000/foods", { 
+/*            console.log(bodyContent)
+ */        let response = await fetch("http://localhost:3000/foods/", { 
             method: "POST",
             body: bodyContent,
             headers: headersList
         });
-           
         let data = await response.text();
         return;
     }

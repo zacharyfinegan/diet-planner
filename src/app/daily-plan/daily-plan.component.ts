@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import macroData from '../../assets/json/db.json'
+import macroData from 'db.json'
 import { Form, FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
